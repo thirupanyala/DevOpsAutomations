@@ -8,6 +8,7 @@ public class DevOpsAutomationsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DevOpsAutomationsApplication.class, args);
+		System.out.println("Successfully completed");
 	}
 
 }
