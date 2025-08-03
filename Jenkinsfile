@@ -23,8 +23,15 @@ pipeline {
         }
     }
     post {
-        always {
-            cleanWs()
+        success {
+            mail to: 'thirupanyla2k2@gmail.com',
+                 subject: "Jenkins Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Great news! The build succeeded for ${env.JOB_NAME} #${env.BUILD_NUMBER}.\nCheck details: ${env.BUILD_URL}"
+        }    
+        failure {
+            mail to: 'ptreddy2016@gmail.com',
+                 subject: "Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Build failed for ${env.JOB_NAME} #${env.BUILD_NUMBER}.\nCheck details: ${env.BUILD_URL}"
         }
     }
 }
